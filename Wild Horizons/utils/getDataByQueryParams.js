@@ -5,7 +5,7 @@ const getDataByQueryParams = (data, queryObj) => {
         data = data.filter(destination => 
             destination['country'].toLowerCase() === country.toLowerCase())
     }
-    
+
     if (continent) {
         data = data.filter(destination => 
             destination['continent'].toLowerCase() === continent.toLowerCase())
@@ -13,7 +13,7 @@ const getDataByQueryParams = (data, queryObj) => {
 
     if(is_open_to_public) {
         data = data.filter(destination => 
-            destination['is_open_to_public'] === JSON.parse(is_open_to_public))
+            destination['is_open_to_public'] === JSON.parse(is_open_to_public.toLowerCase()))
     }
 
     return data
