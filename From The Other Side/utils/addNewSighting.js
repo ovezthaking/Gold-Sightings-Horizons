@@ -8,7 +8,7 @@ const addNewSighting = async (newSighting) => {
         const parsedData = await getData()
         parsedData.push(newSighting)
         
-        const newData = JSON.stringify(parsedData)
+        const newData = JSON.stringify(parsedData, null, 2)
         return await fs.writeFile(path.join('data', 'data.json'), newData, 'utf8')
     } catch (err) {
         throw new Error('Error posting new sighting: ', err)
