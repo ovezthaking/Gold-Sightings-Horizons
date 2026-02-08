@@ -8,7 +8,7 @@ const getData = async () => {
         const data = await fs.readFile(pathtoData, 'utf8')
         const parsedData = JSON.parse(data)
 
-        return JSON.parse(data)
+        return parsedData
     } catch (err) {
         console.log(err)
 
