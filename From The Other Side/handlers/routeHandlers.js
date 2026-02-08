@@ -1,4 +1,5 @@
 import getData from "../utils/getData.js"
+import parseJSONBody from "../utils/parseJSONBody.js"
 import sendResponse from "../utils/sendResponse.js"
 
 export const handleGet = async (res) => {
@@ -13,5 +14,7 @@ export const handleGet = async (res) => {
 }
 
 export const handlePost = async (req, res) => {
-    console.log('POST request received')
+    const rawBody = await parseJSONBody(req)
+
+    console.log(rawBody)
 }
