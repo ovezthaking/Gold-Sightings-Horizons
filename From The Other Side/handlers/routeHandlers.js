@@ -11,3 +11,7 @@ export const handleGet = async (res) => {
         sendResponse(res, 500, 'application/json', JSON.stringify({error: 'Server Error'}))
     }
 }
+
+export const handlePost = async (req, res) => {
+    console.log('POST request received')
+}
