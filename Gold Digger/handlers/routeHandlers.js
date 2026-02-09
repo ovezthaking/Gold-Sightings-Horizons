@@ -19,3 +19,8 @@ export const handlePrice = async (req, res) => {
         )
     },2000)
 }
+
+
+export const handlePost = async (req, res) => {
+    
+}

@@ -27,3 +27,8 @@ document.addEventListener('input', (e) => {
         e.target.value = 0
     }
 })
+
+
+document.querySelector('form').addEventListener('submit', (e) => {
+    e.preventDefault()
+})
