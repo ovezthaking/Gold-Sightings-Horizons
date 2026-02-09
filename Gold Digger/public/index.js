@@ -8,6 +8,22 @@ eventSource.onmessage = (e) => {
     priceEl.innerText = parseFloat(data.price)
 }
 
-eventSource.onerror(() => {
+eventSource.onerror = () => {
     console.error('Connection lost. Reconnecting...')
+}
+
+
+document.addEventListener('input', (e) => {
+    if (e.target.id !== 'investment-amount') {
+        return
+    }
+
+    if (e.target.value === '') {
+        return
+    }
+
+    const value = Number(e.target.value)
+    if (Number.isNaN(value) || value < 0) {
+        e.target.value = 0
+    }
 })
