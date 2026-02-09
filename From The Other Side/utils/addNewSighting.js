@@ -1,11 +1,13 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import getData from './getData.js'
+import { v4 as uuid } from 'uuid'
 
 const addNewSighting = async (newSighting) => {
     
     try {
         const parsedData = await getData()
+        newSighting.uuid = uuid()
         parsedData.push(newSighting)
         
         const newData = JSON.stringify(parsedData, null, 2)
