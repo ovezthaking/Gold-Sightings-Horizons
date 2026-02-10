@@ -33,9 +33,8 @@ const getData = async () => {
                 pricePerOz: responseArray[1],
                 goldSold: responseArray[2],
             })
-    
-            return OrderArray
         }
+        return OrderArray
     } catch (err) {
         console.error('Error: ', err)
         throw new Error('Error getting data: ', err)

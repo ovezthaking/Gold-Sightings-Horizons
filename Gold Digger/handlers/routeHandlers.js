@@ -1,6 +1,7 @@
 import parseReqBody from "../utils/parseReqBody.js"
 import sendResponse from "../utils/sendResponse.js"
 import { orderEvents } from "../events/orderEvents.js"
+import getData from "../utils/getData.js"
 
 export const handlePrice = async (req, res) => {
     res.statusCode = 200
@@ -34,5 +35,17 @@ export const handlePost = async (req, res) => {
         sendResponse(res, 201, 'application/json', JSON.stringify(parsedBody))
     } catch (err) {
         sendResponse(res, 400, 'application/json', JSON.stringify({ error: err }))
+    }
+}
+
+
+export const handleGet = async (res) => {
+    try {
+        const data = await getData()
+
+        sendResponse(res, 200, 'application/json', JSON.stringify(data))
+    } catch (err) {
+        console.error('Error: ', err)
+        sendResponse(res, 500, 'application/json', JSON.stringify({ error: err }))
     }
 }

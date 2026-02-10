@@ -1,6 +1,6 @@
 import http from 'node:http'
 import serveStatic from './utils/serveStatic.js'
-import { handlePost, handlePrice } from './handlers/routeHandlers.js'
+import { handleGet, handlePost, handlePrice } from './handlers/routeHandlers.js'
 import sendResponse from './utils/sendResponse.js'
 import getData from './utils/getData.js'
 
@@ -14,7 +14,7 @@ const server = http.createServer(async (req, res) => {
             return await handlePost(req, res)
         }
         else if (req.method === 'GET') {
-            await getData()
+            await handleGet(res)
         }
         else {
             sendResponse(res, 404, 'application/json', JSON.stringify(
