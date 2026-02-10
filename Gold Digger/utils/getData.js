@@ -2,13 +2,15 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 
 const getData = async () => {
-    const pathtoData = path.join('data', 'purchases.txt')
+    const pathToData = path.join('data', 'purchases.txt')
 
     try {
-        const content = await fs.readFile(pathtoData, 'utf8')
+        const content = await fs.readFile(pathToData, 'utf8')
         
         const contentArray = content.split('\n')
-        if (!contentArray[-1]) contentArray.pop()
+        if (contentArray.length > 0 && contentArray[contentArray.length - 1].trim() === '') {
+            contentArray.pop()
+        }
         
         let OrderArray = []
     
