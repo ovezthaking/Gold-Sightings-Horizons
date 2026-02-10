@@ -1,0 +1,2 @@
+2026-02-10T00:11:21.497Z, amount paid: £343, price per Oz: 3694.08, gold sold: 0.0929 Oz
+2026-02-10T00:11:33.468Z, amount paid: £3423, price per Oz: 3694.06, gold sold: 0.9266 Oz
