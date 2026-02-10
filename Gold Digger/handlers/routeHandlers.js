@@ -1,6 +1,6 @@
 import parseReqBody from "../utils/parseReqBody.js"
 import sendResponse from "../utils/sendResponse.js"
-import addNewOrder from "../utils/addNewOrder.js"
+import { orderEvents } from "../events/orderEvents.js"
 
 export const handlePrice = async (req, res) => {
     res.statusCode = 200
@@ -28,7 +28,8 @@ export const handlePrice = async (req, res) => {
 export const handlePost = async (req, res) => {
     try {
         const parsedBody = await parseReqBody(req)
-        await addNewOrder(parsedBody)
+        
+        orderEvents.emit('order-made', parsedBody)
 
         sendResponse(res, 201, 'application/json', JSON.stringify(parsedBody))
     } catch (err) {
