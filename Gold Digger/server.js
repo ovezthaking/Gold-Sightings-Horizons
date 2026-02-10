@@ -2,6 +2,7 @@ import http from 'node:http'
 import serveStatic from './utils/serveStatic.js'
 import { handlePost, handlePrice } from './handlers/routeHandlers.js'
 import sendResponse from './utils/sendResponse.js'
+import getData from './utils/getData.js'
 
 
 const PORT = 8000
@@ -11,6 +12,9 @@ const server = http.createServer(async (req, res) => {
     if (req.url === '/api'){
         if (req.method === 'POST') {
             return await handlePost(req, res)
+        }
+        else if (req.method === 'GET') {
+            await getData()
         }
         else {
             sendResponse(res, 404, 'application/json', JSON.stringify(
